@@ -1,0 +1,29 @@
+// Place all the styles related to the homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.masthead {
+        background-image: url('2.jpg') !important;
+        background-size: cover !important;
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+}
+.ui.menu.fluid, .ui.vertical.menu.fluid {
+    width: 100% !important;
+}
+.ui.menu:last-child {
+    margin-bottom: 0rem;
+}
+.ui.menu:first-child {
+    margin-top: -1.5rem;
+}
+.ui[class*="very relaxed"].grid {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+.ui.menu {
+    font-size: 1rem;
+    border-radius: -1.714rem;
+    min-height: 2.857em;
+}
