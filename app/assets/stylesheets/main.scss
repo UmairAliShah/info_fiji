@@ -1,0 +1,65 @@
+body {
+  background: url('Web landing page image.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.btn-outline {
+    background-color: transparent;
+    color: inherit;
+    transition: all .5s;
+}
+
+.btn-primary.btn-outline {
+    color: #428bca;
+}
+.btn-success.btn-outline {
+    color: #5cb85c;
+}
+.btn-primary.btn-outline:hover,
+.btn-success.btn-outline:hover,{
+    color: #fff;
+}
+.signup{
+   margin-top: 10px;
+   border: 2px solid white;
+   font-weight: bold;
+}
+.login{
+  margin-top: 10px;
+  margin-right: 5px;
+  border: 2px solid white;
+  font-weight: bold;
+}
+.my_nav_bar_row{
+  margin-left: 0.1em;
+  margin-right: 0.1em;
+}
+.my_nav_bar{
+  background: yellow;
+}
+.my_nav_bar > li{
+  width: 100%;
+  background: red;
+  border: solid 3px #333;
+}
+.my_nav_bar > li:hover{
+  background: white;
+  color: black;
+}
+#notice_wrapper{
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  .app_alert, .app_notice{
+    padding: 0.6em 0;text-align: center;margin: 0;font-size: 1.2em;font-weight: 700;color: #FFFFFF;letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+}
+.my_alert{
+  background: rgba(241, 148, 138, 0.8);border-style: solid;border-color: #A93226;border-radius: 5px;
+}
+.my_notice{
+  background: rgba(130,224,170, 0.8);border-style: solid;border-color: #45B39D;border-radius: 5px;
+}

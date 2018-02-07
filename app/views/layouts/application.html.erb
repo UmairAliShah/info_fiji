@@ -6,11 +6,80 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+
   </head>
 
   <body>
 
-    <%= yield %>
+      <div class="container-fluid" style="background: rgba(34,67,98,0.7);">
+         <div class="row" style="margin-top: 0.3em;">
+           <div class="col-md-1 col-xs-12">
+              <a href="\" style="margin-top:-0.5em;">
+                <%= image_tag("circle.png", class: "img-responsive img-circle", alt: "Info Fiji", style: "width: 60px; height: 60px;") %>
+              </a>
+           </div>
+           <div class="col-md-3 col-xs-12">
+                <h5 style="color: #FFFFFF">Creating networking opportunity for Fiji Directory in your hands</h5>
+           </div>
+           <div class="col-md-3 col-xs-12">
+           </div>
+           <div class="col-md-3 col-xs-12">
+             <form class="navbar-form" style="float: right;">
+               <div class="form-group" style="display:inline;">
+                 <div class="input-group">
+                   <input class="form-control" placeholder="search..." type="text">
+                   <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                 </div>
+               </div>
+             </form>
+           </div>
+           <div class="col-md-2 col-xs-12">
+             <% if user_signed_in? %>
+              <%= link_to("Logout",  destroy_user_session_path, method: :delete, class: "btn btn-outline btn-primary signup", style:"float: right;") %>
+             <%else %>
+                <%= link_to("Sign Up",  new_user_registration_path, class: "btn btn-outline btn-primary signup", style:"float: right;") %>
+                <%=link_to("Login", new_user_session_path, class:"btn btn-outline btn-success login", style:"float: right; ") %>
+              <%end%>
+           </div>
+         </div>
+         <div class="row my_nav_bar_row">
+           <nav class="navbar navbar-inverse">
+             <div class="container-fluid">
+               <div class="navbar-header">
+                 <button class="navbar-toggle" data-target="#mainNavCollapse" data-toggle="collapse" type="button">
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#">Info Fiji</a>
+                </div>
+                <div class="collapse navbar-collapse" id="mainNavCollapse">
+                  <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Residential</a></li>
+                    <li><a href="#">Professional</a></li>
+                    <li><a href="#">Business</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                 </ul>
+                </div>
+             </div>
+           </nav>
+         </div>
+      </div>
+
+    <div class="container-fluid">
+      <% if notice %>
+            <div id="notice_wrapper" class="my_notice">
+              <center><p class="app_notice"><%= notice %></p></center>
+            </div>
+          <%elsif alert %>
+            <div id="notice_wrapper" class="my_alert">
+              <center><p class="app_alert"><%= alert %></p></center>
+            </div>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
