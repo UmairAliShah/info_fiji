@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>InfoFiji</title>
+    <title><%= yield(:title) %></title>
     <%= csrf_meta_tags %>
-
+    <%= favicon_link_tag 'favicon.png' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
@@ -15,7 +15,7 @@
          <div class="row" style="margin-top: 0.3em;">
            <div class="col-md-1 col-xs-12">
               <a href="\" style="margin-top:-0.5em;">
-                <%= image_tag("circle.png", class: "img-responsive img-circle", alt: "Info Fiji", style: "width: 60px; height: 60px;") %>
+                <%= image_tag("logo_128.png", class: "img-responsive img-circle", alt: "Info Fiji", style: "width: 60px; height: 60px;") %>
               </a>
            </div>
            <div class="col-md-3 col-xs-12">

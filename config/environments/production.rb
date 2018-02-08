@@ -89,4 +89,23 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+
+
+  #Mailer Configurations Code
+  config.action_mailer.default_url_options = { host: 'info-fiji.herokuapp.com', protocol: 'https' }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.smtp_settings = {
+    :address => 'smtp.gmail.com',
+    :domain => 'mail.google.com',
+    :port => 587,
+    :user_name => ENV["ID"],
+    :password => ENV['PASS'],
+    :authentication => 'plain',
+    :enable_starttls_auto => true
+  }
+
+
 end

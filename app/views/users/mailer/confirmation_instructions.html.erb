@@ -1,5 +1,18 @@
-<p>Welcome <%= @email %>!</p>
-
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="jumbotron col-md-6" style=" background-color: rgba(255,255,255,0.9);">
+       <div class="row">
+         <div class="col-md-12">
+           <h5 class="heading_text">Welcome <%= @email %>!</h5>
+         </div>
+         <div class="row">
+           <p><mark>You can confirm your account email through the link below:</mark></p>
+           <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token, class: "btn btn-outline btn-primary signup") %></p>
+         </div>
+       </div>
+    </div>
+    <div class="col-md-3"></div>
+   </div>
+  </div>
+</div>
