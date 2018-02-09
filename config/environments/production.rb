@@ -93,7 +93,7 @@ Rails.application.configure do
 
 
   #Mailer Configurations Code
-  config.action_mailer.default_url_options = { host: 'info-fiji.herokuapp.com', protocol: 'https' }
+  config.action_mailer.default_url_options = { host: 'info-fiji.herokuapp.com', protocol: 'http' }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true

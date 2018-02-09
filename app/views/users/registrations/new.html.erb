@@ -1,5 +1,5 @@
 <% content_for :title, "User Sign-Up | Info Fiji" %>
-<div class="container" style="padding-top: 37px;">
+<div class="container" style="padding-top: 20px;">
   <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6 no-pad-xs">
@@ -8,7 +8,7 @@
           <center><h3 class="heading_text">Sign-Up</h3></center>
         </div>
       </div>
-      <div class="jumbotron" style="padding-top:1em;padding-bottom:1em; background-color: rgba(255,255,255,0.9); border-radius:0 0 1em 1em;">
+      <div class="jumbotron" style="padding-top:1em;padding-bottom:1em; background-color: rgba(48,110,255,0.4); border-radius:0 0 1em 1em;">
         <div class="row">
           <div class="col-md-1"></div>
           <div class="col-md-10 login_signup_panel">
@@ -17,21 +17,21 @@
 
                  <div class="form-group" style="padding:0px;margin:0px;">
                    <%= f.label :email, class: "login_signup_label" %><br />
-                   <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'E-mail',class: 'form-control my_text_field', style:"color: #1E8449;", required: true %>
+                   <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'E-mail',class: 'form-control my_text_field', required: true %>
                  </div>
 
                  <div class="form-group" style="padding:0px;margin:0px;">
                    <%= f.label :password, class: "login_signup_label" %>
-                   <%= f.password_field :password, autocomplete: "off", placeholder: 'Password', class: 'form-control my_text_field', style:"color: #1E8449;", required: true%>
+                   <%= f.password_field :password, autocomplete: "off", placeholder: 'Password', class: 'my_text_field form-control',required: true%>
                  </div>
 
                  <div class="form-group" style="padding:0px;margin:0px 0px 15px 0px;">
                    <%= f.label :password_confirmation, class: "login_signup_label" %><br />
-                   <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirm Password', class: 'form-control my_text_field', style:"color: #1E8449;", required: true%>
+                   <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirm Password', class: 'form-control my_text_field', required: true%>
                  </div>
 
                  <div class="form-group">
-                   <%= f.submit "Sign up" ,class: 'btn btn-block btn-success', style: "font-weight:bold;font-family: 'Merriweather', serif;" %>
+                   <%= f.submit "Sign up" ,class: 'btn btn-block btn-outline btn-primary active_button', style: "font-weight:bold;font-family: 'Merriweather', serif; color:#FFFFFF" %>
                  </div>
             <% end %>
             <%= render "users/shared/links" %>

@@ -2,12 +2,26 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:700|Merriweather:700" rel="stylesheet">
     <style>
-      /* Email styles need to be inline */
+
     </style>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12" style="background-color: #0041C2;">
+          <center>
+            <%= image_tag("logo_128.png", class: "img-responsive img-circle", alt: "Info Fiji", style: "width: 60px; height: 60px;") %>
+            <br>
+            <h3 style="text-align:center; font-weight: bold; font-size: 30px;">Info-Fiji</h3>
+            <br><br>
+            <%= yield %>
+          </center>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
