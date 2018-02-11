@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20180211111239_add_completion_to_business.rb

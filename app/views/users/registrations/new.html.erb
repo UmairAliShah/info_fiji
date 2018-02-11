@@ -30,6 +30,43 @@
                    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirm Password', class: 'form-control my_text_field', required: true%>
                  </div>
 
+                 <div class="form-group" style="padding:0px;margin:0px;border-radius:0px;">
+                    <center>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <label class="col-md-12 btn btn-block role_div" onclick="callme(this)" style="padding:0px;margin:0px;border-radius:0px;">
+                            <div class="col-md-12">
+                               <center>
+                                 <%= f.radio_button :role, 1, style:"display:none;", required: true%>
+                                 <h6 class="heading_text">Residential</h6>
+                               </center>
+                            </div>
+                          </label>
+                        </div>
+                        <div class="col-md-4">
+                          <label class="col-md-12 btn btn-block role_div" onclick="callme(this)" style="padding:0px;margin:0px;border-radius:0px;">
+                            <div class="col-md-12">
+                               <center>
+                                 <%= f.radio_button :role, 2, style:"display:none;", required: true%>
+                                 <h6 class="heading_text" style="text-align:left;">Professional</h6>
+                               </center>
+                            </div>
+                          </label>
+                        </div>
+                        <div class="col-md-4">
+                          <label class="col-md-12 btn btn-block role_div" onclick="callme(this)" style="padding:0px;margin:0px;border-radius:0px;">
+                            <div class="col-md-12">
+                               <center>
+                                 <%= f.radio_button :role, 3, style:"display:none;", required: true%>
+                                 <h6 class="heading_text">Business</h6>
+                               </center>
+                            </div>
+                          </label>
+                        </div>
+                      </div>
+                    </center>
+                 </div>
+                 <br>
                  <div class="form-group">
                    <%= f.submit "Sign up" ,class: 'btn btn-block btn-outline btn-primary active_button', style: "font-weight:bold;font-family: 'Merriweather', serif; color:#FFFFFF" %>
                  </div>

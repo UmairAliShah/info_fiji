@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180207134800) do
+ActiveRecord::Schema.define(version: 20180211111521) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,6 +27,47 @@ ActiveRecord::Schema.define(version: 20180207134800) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "businesses", force: :cascade do |t|
+    t.string "company_name"
+    t.string "email"
+    t.string "skype"
+    t.string "fax"
+    t.string "website"
+    t.string "about"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "completion", default: 0
+    t.index ["user_id"], name: "index_businesses_on_user_id"
+  end
+
+  create_table "professionals", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "gender"
+    t.string "skype"
+    t.string "whatsapp"
+    t.string "about"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "completion", default: 0
+    t.index ["user_id"], name: "index_professionals_on_user_id"
+  end
+
+  create_table "residentials", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "gender"
+    t.string "skype"
+    t.string "whatsapp"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "completion", default: 0
+    t.index ["user_id"], name: "index_residentials_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -46,6 +87,7 @@ ActiveRecord::Schema.define(version: 20180207134800) do
     t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "role"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

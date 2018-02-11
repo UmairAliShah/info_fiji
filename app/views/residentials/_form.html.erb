@@ -1,0 +1,69 @@
+
+<div class="container" style="padding-top: 20px;">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 no-pad-xs">
+      <div class="row login_signup_heading" style="padding:0px;margin:0px;">
+        <div class="col-md-12">
+          <center><h3 class="heading_text">Create Residential Profile</h3></center>
+        </div>
+      </div>
+      <div class="jumbotron" style="padding-top:1em;padding-bottom:1em; background-color: rgba(48,110,255,0.4); border-radius:0 0 1em 1em;">
+        <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-10 login_signup_panel">
+          <%= form_with(model: residential, local: true) do |form| %>
+            <% if residential.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(residential.errors.count, "error") %> prohibited this residential from being saved:</h2>
+
+                <ul>
+                <% residential.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="field">
+              <%= form.label :first_name %>
+              <%= form.text_field :first_name, id: :residential_first_name %>
+            </div>
+
+            <div class="field">
+              <%= form.label :last_name %>
+              <%= form.text_field :last_name, id: :residential_last_name %>
+            </div>
+
+            <div class="field">
+              <%= form.label :gender %>
+              <%= form.text_field :gender, id: :residential_gender %>
+            </div>
+
+            <div class="field">
+              <%= form.label :skype %>
+              <%= form.text_field :skype, id: :residential_skype %>
+            </div>
+
+            <div class="field">
+              <%= form.label :whatsapp %>
+              <%= form.text_field :whatsapp, id: :residential_whatsapp %>
+            </div>
+
+            <div class="field">
+              <%= form.label :user_id %>
+              <%= form.text_field :user_id, id: :residential_user_id %>
+            </div>
+
+            <div class="actions">
+              <%= form.submit %>
+            </div>
+          <% end %>
+          </div>
+          <div class="col-md-1"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>

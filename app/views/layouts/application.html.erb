@@ -9,39 +9,10 @@
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:700|Merriweather:700" rel="stylesheet">
   </head>
 
-  <body>
+  <body style="padding-top:5.9em;">
 
-      <div class="container-fluid" style="background: rgba(34,67,98,0.7);">
-         <div class="row" style="margin-top: 0.3em;">
-           <div class="col-md-1 col-xs-12">
-              <a href="\" style="margin-top:-0.5em;">
-                <%= image_tag("logo_128.png", class: "img-responsive img-circle", alt: "Info Fiji", style: "width: 60px; height: 60px;") %>
-              </a>
-           </div>
-           <div class="col-md-3 col-xs-12">
-                <h5 style="color: #FFFFFF">Creating networking opportunity for Fiji Directory in your hands</h5>
-           </div>
-           <div class="col-md-3 col-xs-12">
-           </div>
-           <div class="col-md-3 col-xs-12">
-             <form class="navbar-form" style="float: right;">
-               <div class="form-group" style="display:inline;">
-                 <div class="input-group">
-                   <input class="form-control" placeholder="search..." type="text">
-                   <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-                 </div>
-               </div>
-             </form>
-           </div>
-           <div class="col-md-2 col-xs-12">
-             <% if user_signed_in? %>
-              <%= link_to("Logout",  destroy_user_session_path, method: :delete, class: "btn btn-outline btn-primary signup", style:"float: right;") %>
-             <%else %>
-                <%= link_to("Sign Up",  new_user_registration_path, class: "btn btn-outline btn-primary signup", style:"float: right;") %>
-                <%=link_to("Login", new_user_session_path, class:"btn btn-outline btn-success login", style:"float: right; ") %>
-              <%end%>
-           </div>
-         </div>
+      <div class="container-fluid navbar-fixed-top" style="background: rgba(34,67,98,0.7);">
+
          <div class="row my_nav_bar_row">
            <nav class="navbar navbar-inverse">
              <div class="container-fluid">
@@ -52,7 +23,9 @@
                    <span class="icon-bar"></span>
                    <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand" href="#">Info Fiji</a>
+                  <a href="\" style="margin-top:-0.5em;">
+                    <%= image_tag("logo_128.png", class: "img-responsive img-circle", alt: "Info Fiji", style: "width: 60px; height: 60px;") %>
+                  </a>
                 </div>
                 <div class="collapse navbar-collapse" id="mainNavCollapse">
                   <ul class="nav navbar-nav">
@@ -62,6 +35,31 @@
                     <li><a href="#">Business</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact Us</a></li>
+                    <%if user_signed_in?%>
+                      <% if current_user.role == 1 %>
+                         <li><a href="#">Residential</a></li>
+                      <% elsif current_user.role == 2 %>
+                         <li><a href="#">Professional</a></li>
+                      <% elsif current_user.role == 3%>
+                         <li><a href="#">Business</a></li>
+                      <% end %>
+                    <% end %>
+                    <% if user_signed_in? %>
+                      <li><%= link_to("Logout",  destroy_user_session_path, method: :delete, class: "btn btn-outline btn-primary signup") %></li>
+                    <%else %>
+                       <li><%= link_to("Sign Up",  new_user_registration_path) %></li>
+                       <li><%=link_to("Login", new_user_session_path) %></li>
+                     <%end%>
+                    <li>
+                      <form class="navbar-form">
+                        <div class="form-group" style="display:inline;">
+                          <div class="input-group">
+                            <input class="form-control" placeholder="Search..." type="text">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                          </div>
+                        </div>
+                      </form>
+                    </li>
                  </ul>
                 </div>
              </div>
@@ -79,7 +77,77 @@
               <center><p class="app_alert"><%= alert %></p></center>
             </div>
       <% end %>
-      <%= yield %>
+
+      <% if user_signed_in? %>
+        <div class="row" style="">
+          <nav class="navbar navbar-inverse sidebar nav_bar_color navbar-fixed-top" role="navigation">
+              <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                    <center>
+                      <a class="navbar-brand" href="#" style="width:100%;">Sanjay</a>
+                      <br>
+                      <%= image_tag("logo_128.png", class: "img-responsive img-circle", alt: "Profile Photo", style: "width: 120px; height: 120px;") %>
+                      <br>
+                      <% if user_signed_in? %>
+                        <% if current_user.role == 1%>
+                          <% if current_user.residential == nil  %>
+                            <%= progress_bar 0.0,label: true, alternative: 'info', active: true, style:"margin: 6px;"  %>
+                            <h5 style="color: #FFFFFF;">0% Completed</h5>
+                          <% else %>
+                            <% @count = current_user.residential.completion/100%>
+                            <%= progress_bar @count,label: true, alternative: 'info', active: true, style:"margin: 6px;"  %>
+                            <h5 style="color: #FFFFFF;"><%= current_user.residential.completion%> Completed</h5>
+                          <% end %>
+                        <% elsif current_user.role == 2%>
+                          <% if current_user.professional == nil  %>
+                            <%= progress_bar 0.0,label: true, alternative: 'info', active: true, style:"margin: 6px;"  %>
+                            <h5 style="color: #FFFFFF;">0% Completed</h5>
+                            <% else %>
+                              <% @count = current_user.professional.completion/100%>
+                              <%= progress_bar @count,label: true, alternative: 'info', active: true, style:"margin: 6px;"  %>
+                              <h5 style="color: #FFFFFF;"><%= current_user.professional.completion%> Completed</h5>
+                            <% end %>
+                        <% elsif current_user.role == 3%>
+                          <% if current_user.business == nil  %>
+                            <%= progress_bar 0.0,label: true, alternative: 'info', active: true, style:"margin: 6px;"  %>
+                            <h5 style="color: #FFFFFF;">0% Completed</h5>
+                            <% else %>
+                              <% @count = current_user.business.completion/100%>
+                              <%= progress_bar @count,label: true, alternative: 'info', active: true, style:"margin: 6px;"  %>
+                              <h5 style="color: #FFFFFF;"><%= current_user.business.completion%> Completed</h5>
+                            <% end %>
+                        <%end%>
+                      <% end %>
+
+                    </center>
+                  </div>
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                  <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                      <li ><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+                      <% if user_signed_in? %>
+                        <% if current_user.role == 1%>
+                            <%= render "layouts/residential" %>
+                        <% elsif current_user.role == 2%>
+                            <%= render "layouts/professional" %>
+                        <% elsif current_user.role == 3%>
+                           <%= render "layouts/business" %>
+                        <%end%>
+                      <% end %>
+                    </ul>
+                  </div>
+              </div>
+           </nav>
+         </div>
+      <% end %>
     </div>
+    <div class="row" style="margin:0px;padding:0px;"><%= yield %></div>
   </body>
 </html>

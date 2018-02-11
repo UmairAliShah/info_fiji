@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @professional.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @professional.last_name %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @professional.gender %>
+</p>
+
+<p>
+  <strong>Skype:</strong>
+  <%= @professional.skype %>
+</p>
+
+<p>
+  <strong>Whatsapp:</strong>
+  <%= @professional.whatsapp %>
+</p>
+
+<p>
+  <strong>About:</strong>
+  <%= @professional.about %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @professional.user %>
+</p>
+
+<%= link_to 'Edit', edit_professional_path(@professional) %> |
+<%= link_to 'Back', professionals_path %>

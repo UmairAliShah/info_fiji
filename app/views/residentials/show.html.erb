@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @residential.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @residential.last_name %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @residential.gender %>
+</p>
+
+<p>
+  <strong>Skype:</strong>
+  <%= @residential.skype %>
+</p>
+
+<p>
+  <strong>Whatsapp:</strong>
+  <%= @residential.whatsapp %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @residential.user %>
+</p>
+
+<%= link_to 'Edit', edit_residential_path(@residential) %> |
+<%= link_to 'Back', residentials_path %>

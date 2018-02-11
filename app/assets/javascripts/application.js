@@ -15,4 +15,5 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require main
+//= require side_nav_bar
 //= require_tree .

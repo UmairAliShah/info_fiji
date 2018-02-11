@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :businesses
+  resources :professionals
+  resources :residentials
   devise_for :admins, path: 'admins'
   devise_for :users, path: 'users'
   root 'homes#index'

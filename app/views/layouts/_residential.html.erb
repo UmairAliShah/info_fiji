@@ -1,0 +1,22 @@
+<% if current_user.residential == nil  %>
+  <li >
+    <%= link_to new_residential_path do%>
+       Create Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span>
+    <% end %>
+  </li>
+<% else %>
+  <li ><a href="#">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+<% end %>
+<li ><a href="#">Messages<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
+  <ul class="dropdown-menu forAnimate" role="menu">
+    <li><a href="#">View Profile</a></li>
+    <li><a href="#">Edit Profile</a></li>
+    <li><a href="#">Change Password</a></li>
+    <li class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+    <li class="divider"></li>
+    <center><li><%= link_to("Logout",  destroy_user_session_path, method: :delete, class: "btn btn-outline btn-primary btn-sm signup", style:"mrgin-botton: 5px;") %></li></center>
+  </ul>
+</li>
